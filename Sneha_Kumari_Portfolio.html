@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneha Kumari | B.Tech ECE Portfolio</title>
+  <meta name="author" content="Sneha Kumari" />
+  <meta name="description" content="Personal portfolio of Sneha Kumari, 7th-semester B.Tech ECE student at BIT Patna." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,600;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fdfbf8;
+      --bg-soft: #f6f0ea;
+      --card: #ffffff;
+      --card-soft: #faf6f2;
+      --text: #273242;
+      --heading: #192231;
+      --muted: #606c7c;
+      --border: #e9dfd6;
+      --accent: #a8546a;
+      --accent-dark: #8c4155;
+      --accent-soft: #faedf0;
+      --teal: #2b7a72;
+      --teal-soft: #e9f5f3;
+      --warm: #c97352;
+      --canvas-bg: #fcf9f6;
+      --canvas-grid: rgba(168, 84, 106, 0.1);
+      --shadow: 0 8px 26px rgba(25, 34, 49, 0.06);
+      --radius: 18px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #131822;
+      --bg-soft: #181f2c;
+      --card: #1c2433;
+      --card-soft: #222c3e;
+      --text: #dce3ee;
+      --heading: #f5f7fb;
+      --muted: #98a4b7;
+      --border: #2c374c;
+      --accent: #df8da2;
+      --accent-dark: #efa8ba;
+      --accent-soft: rgba(223, 141, 162, 0.14);
+      --teal: #57c7ba;
+      --teal-soft: rgba(87, 199, 186, 0.14);
+      --warm: #e49778;
+      --canvas-bg: #121824;
+      --canvas-grid: rgba(223, 141, 162, 0.11);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+    body {
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15.5px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px; width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      z-index: 200;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--heading);
+      font-size: 15.5px;
+    }
+
+    .avatar-mini {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--warm));
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 12.5px;
+      font-weight: 500;
+      transition: border-color 0.2s ease;
+    }
+
+    .theme-btn:hover { border-color: var(--accent); }
+
+    .menu-btn {
+      display: none;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--heading);
+      font-size: 18px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 54px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 13px;
+      border-radius: 99px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .greeting {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.25rem, 4vw, 3.2rem);
+      color: var(--heading);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero-role {
+      font-size: 16.5px;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .hero-bio {
+      color: var(--muted);
+      font-size: 15.5px;
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(168, 84, 106, 0.24);
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-outline {
+      background: var(--card);
+      color: var(--heading);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); }
+
+    .toast-msg {
+      font-size: 12.5px;
+      color: var(--teal);
+      min-height: 18px;
+    }
+
+    /* Interactive Demo Card */
+    .demo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .demo-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .demo-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .demo-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill-switch {
+      display: inline-flex;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .sw-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 7px;
+      transition: all 0.18s ease;
+    }
+
+    .sw-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .canvas-box {
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--canvas-bg);
+      overflow: hidden;
+    }
+
+    .canvas-box.draggable { cursor: grab; user-select: none; }
+    .canvas-box.draggable:active { cursor: grabbing; }
+
+    canvas { display: block; width: 100%; height: auto; }
+
+    .canvas-tags {
+      position: absolute;
+      bottom: 8px; left: 10px;
+      display: flex;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .mini-mono {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10.5px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      border: 1px solid var(--border);
+      color: var(--heading);
+    }
+
+    .readout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .readout {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 7px 10px;
+      text-align: center;
+    }
+
+    .readout span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .readout strong {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5px;
+      color: var(--heading);
+    }
+
+    /* Sections */
+    .section { padding: 62px 0; }
+    .section-alt {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-title {
+      margin-bottom: 28px;
+    }
+
+    .sec-title h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.65rem, 2.8vw, 2.15rem);
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+
+    .sec-title p {
+      color: var(--muted);
+      font-size: 14.8px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .story p + p { margin-top: 13px; }
+    .story strong { color: var(--heading); }
+
+    .edu-row {
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .edu-row:first-of-type { padding-top: 4px; }
+    .edu-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+    .edu-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--heading);
+      font-size: 14.5px;
+    }
+
+    .score-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5px;
+      color: var(--accent);
+    }
+
+    .edu-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Projects */
+    .badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-teal {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .project-main {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-main h3 {
+      font-size: 1.32rem;
+      color: var(--heading);
+      margin-top: 6px;
+    }
+
+    .bench-box {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .bench-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .metrics-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .m-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .m-k { font-size: 12px; color: var(--muted); }
+    .m-v {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .m-v small { font-size: 11.5px; font-weight: 500; color: var(--muted); }
+
+    .bar-bg {
+      height: 7px;
+      border-radius: 99px;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    .bar-fg {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .bg-rose { background: var(--accent); }
+    .bg-teal { background: var(--teal); }
+    .bg-warm { background: var(--warm); }
+
+    .m-note { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .proj-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .proj-card:hover { transform: translateY(-3px); }
+
+    .proj-card h3 {
+      font-size: 1.15rem;
+      color: var(--heading);
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pipe-panel {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px;
+      margin-top: 12px;
+    }
+
+    .pipe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 10px;
+    }
+
+    .pipe-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .pipe-btn.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #ffffff;
+    }
+
+    .pipe-text { font-size: 13px; color: var(--text); min-height: 40px; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tags span {
+      font-size: 11.5px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* Internships */
+    .exp-stack { display: flex; flex-direction: column; gap: 18px; }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .exp-top h3 { font-size: 1.15rem; color: var(--heading); }
+    .exp-role { font-size: 13.5px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+
+    .date-pill {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .exp-list {
+      margin-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14.5px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* Skills */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .f-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .f-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-box { transition: opacity 0.25s ease, transform 0.25s ease; }
+    .skill-box.dim { opacity: 0.35; transform: scale(0.985); }
+    .skill-box h3 { font-size: 1rem; color: var(--heading); margin-bottom: 12px; }
+
+    /* Hobbies */
+    .hobby-card h3 { font-size: 1.05rem; color: var(--heading); margin: 8px 0 6px; }
+    .hobby-card p { font-size: 14px; color: var(--muted); }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-info {
+      border-left: 1px solid var(--border);
+      padding-left: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .ci-row span { display: block; font-size: 11.5px; color: var(--muted); }
+    .ci-row strong, .ci-row a { font-size: 14.5px; color: var(--heading); font-weight: 600; }
+    .ci-row a:hover { color: var(--accent); text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Smooth Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 920px) {
+      .hero-grid, .about-grid, .two-col, .three-col, .contact-grid { grid-template-columns: 1fr; }
+      .metrics-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-info { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 20px; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 22px;
+        gap: 14px;
+      }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+      .metrics-4, .readout-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#top" class="logo">
+        <span class="avatar-mini">SK</span>
+        <span>Sneha Kumari</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#internships">Internships</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-btn" id="themeBtn">Dark Mode</button>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal show">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            7th Semester, B.Tech ECE at BIT Patna
+          </div>
+          <p class="greeting">Hello, I'm</p>
+          <h1>Sneha Kumari</h1>
+          <p class="hero-role">Electronics &amp; Communication Engineering Student</p>
+          <p class="hero-bio">
+            I'm a final-year ECE student from Hazaribagh, studying at BIT Mesra (Patna Campus).
+            I enjoy building embedded systems, working on digital hardware, and learning how real
+            plant instrumentation works. Outside college labs, I love sketching, painting, and playing badminton.
+          </p>
+
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <button type="button" class="btn btn-outline" id="openOffResumeBtn">Resume (PDF)</button>
+            <button type="button" class="btn btn-outline" id="heroCopyBtn">Copy Email</button>
+          </div>
+          <div class="toast-msg" id="heroToast"></div>
+        </div>
+
+        <!-- Interactive Minor Project Preview -->
+        <div class="demo-card reveal show">
+          <div class="demo-top">
+            <div>
+              <div class="demo-title">6D Hyperchaotic Speech Encryption Demo</div>
+              <div class="demo-sub">Drag to rotate the 6D attractor from our minor project</div>
+            </div>
+            <div class="pill-switch">
+              <button type="button" class="sw-btn proj-btn active" data-proj="xyz">x-y-z</button>
+              <button type="button" class="sw-btn proj-btn" data-proj="uvw">u-v-w</button>
+              <button type="button" class="sw-btn proj-btn" data-proj="xyu">x-y-u</button>
+            </div>
+          </div>
+
+          <div class="canvas-box draggable" id="attractorWrap">
+            <canvas id="attractorCanvas" width="480" height="220"></canvas>
+            <div class="canvas-tags">
+              <span class="mini-mono">LE1 = 0.723</span>
+              <span class="mini-mono">LE2 = 0.029</span>
+            </div>
+          </div>
+
+          <div class="demo-top">
+            <span class="demo-sub"><strong>Speech Signal (16-bit, 32 kHz):</strong></span>
+            <div class="pill-switch">
+              <button type="button" class="sw-btn scope-btn active" data-mode="original">Original</button>
+              <button type="button" class="sw-btn scope-btn" data-mode="encrypted">Encrypted</button>
+              <button type="button" class="sw-btn scope-btn" data-mode="decrypted">Decrypted</button>
+            </div>
+          </div>
+
+          <div class="canvas-box">
+            <canvas id="scopeCanvas" width="480" height="90"></canvas>
+          </div>
+
+          <div class="readout-grid">
+            <div class="readout"><span>SNR</span><strong id="rdSnr">Original</strong></div>
+            <div class="readout"><span>Correlation</span><strong id="rdCorr">0.9818</strong></div>
+            <div class="readout"><span>PRNG Hex</span><strong id="rdHex">0xFD534BAE</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="sec-title reveal">
+          <h2>About Me</h2>
+          <p>A little about my background and what I have been working on in college.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card story reveal">
+            <p>
+              I did my schooling in <strong>Hazaribagh, Jharkhand</strong> (Angels High School and DAV Public School)
+              and joined <strong>Birla Institute of Technology, Mesra (Patna Campus)</strong> in 2023 to pursue
+              B.Tech in Electronics and Communication Engineering.
+            </p>
+            <p>
+              Over these seven semesters, I have tried to get practical exposure across hardware, firmware, and software.
+              For my 7th-semester minor project, my teammates (Ekta Raj and Pallawee Mahto) and I built and tested a
+              real-time speech encryption system on an <strong>STM32H755ZIQ Nucleo</strong> board under Dr. Shweta Kumari.
+            </p>
+            <p>
+              During summer 2026, I also trained with the Instrumentation Department at
+              <strong>Grasim Industries (Aditya Birla Group)</strong> in Rehla, where I observed field transmitters,
+              control valves, and live DCS monitoring. Earlier, I interned at <strong>Cognifyz Technologies</strong>
+              and built a full-stack travel-listing web app.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3 style="font-size: 1rem; color: var(--heading); margin-bottom: 10px;">Education</h3>
+            <div class="edu-row">
+              <div class="edu-head">
+                <span>B.Tech, Electronics &amp; Communication</span>
+                <span class="score-tag">75%</span>
+              </div>
+              <div class="edu-sub">BIT Mesra (Patna Campus) · 2023 - 2027 (7th Sem)</div>
+            </div>
+            <div class="edu-row">
+              <div class="edu-head">
+                <span>Class 12th (CBSE)</span>
+                <span class="score-tag">80.0%</span>
+              </div>
+              <div class="edu-sub">DAV Public School, Hazaribagh · 2020 - 2022</div>
+            </div>
+            <div class="edu-row">
+              <div class="edu-head">
+                <span>Class 10th (CBSE)</span>
+                <span class="score-tag">82.2%</span>
+              </div>
+              <div class="edu-sub">Angels High School, Hazaribagh · 2019 - 2020</div>
+            </div>
+
+            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 8px;">Core ECE Subjects</div>
+              <div class="tags">
+                <span>Digital Electronics</span>
+                <span>Signals &amp; Systems</span>
+                <span>Microprocessors</span>
+                <span>Communication Systems</span>
+                <span>Computer Architecture</span>
+                <span>Control Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="sec-title reveal">
+          <h2>Projects</h2>
+          <p>Hardware, embedded systems, digital design, and web work.</p>
+        </div>
+
+        <article class="card project-main reveal">
+          <div>
+            <span class="badge">B.Tech Minor Project · 7th Sem (2026-27) · Team of 3</span>
+            <h3>Secure Voice Using 6D Hyper-Chaotic Encryption on STM32H7</h3>
+            <p style="color: var(--muted); margin-top: 8px; font-size: 14.8px;">
+              Built a real-time speech encryption scheme using a 6D hyperchaotic PRNG (RK4) and frame-based dynamic
+              S-boxes (Fisher-Yates shuffle) for 16-bit, 32 kHz audio. Implemented the firmware in Embedded C on an
+              <strong>STM32H755ZIQ Nucleo</strong> board via STM32CubeIDE/MX and verified results with Python over UART (230.4 kbps).
+            </p>
+          </div>
+
+          <div class="bench-box">
+            <div class="bench-top">
+              <div>
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--heading);">Lab Measurements on STM32H755ZIQ</div>
+                <div style="font-size: 12.5px; color: var(--muted);">Select a clock frequency to inspect our DWT cycle &amp; multimeter readings (3.3V IDD jumper):</div>
+              </div>
+              <div class="pill-switch">
+                <button type="button" class="sw-btn freq-btn" data-freq="84">84 MHz</button>
+                <button type="button" class="sw-btn freq-btn" data-freq="90">90 MHz</button>
+                <button type="button" class="sw-btn freq-btn" data-freq="120">120 MHz</button>
+                <button type="button" class="sw-btn freq-btn active" data-freq="180">180 MHz</button>
+              </div>
+            </div>
+
+            <div class="metrics-4">
+              <div class="m-card">
+                <span class="m-k">Encryption Speed</span>
+                <div class="m-v"><span id="mSpeed">0.578</span> <small>Mbps</small></div>
+                <div class="bar-bg"><div id="barSpeed" class="bar-fg bg-teal" style="width: 89%;"></div></div>
+                <span class="m-note" id="mSpeedNote">Meets 0.512 Mbps real-time (+13%)</span>
+              </div>
+
+              <div class="m-card">
+                <span class="m-k">PRNG Bit-Rate</span>
+                <div class="m-v"><span id="mPrng">1.195</span> <small>Mbps</small></div>
+                <div class="bar-bg"><div id="barPrng" class="bar-fg bg-rose" style="width: 92%;"></div></div>
+                <span class="m-note">Passed all 15 NIST SP 800-22 tests</span>
+              </div>
+
+              <div class="m-card">
+                <span class="m-k">Power (3.3V Rail)</span>
+                <div class="m-v"><span id="mPower">82.17</span> <small>mW</small></div>
+                <div class="bar-bg"><div id="barPower" class="bar-fg bg-warm" style="width: 82%;"></div></div>
+                <span class="m-note" id="mCurrent">Steady current: 24.9 mA</span>
+              </div>
+
+              <div class="m-card">
+                <span class="m-k">Memory Usage</span>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--heading);">
+                  Flash: 39.07 KB (3.8%)<br />
+                  RAM_D1: 27.27 KB (5.3%)
+                </div>
+                <span class="m-note">SNR -15.33 dB, NSCR 99.99%, lossless decryption</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span>STM32H755ZIQ Nucleo</span>
+            <span>Embedded C</span>
+            <span>STM32CubeIDE / MX</span>
+            <span>Python</span>
+            <span>UART 230.4 kbps</span>
+            <span>RK4 6D Hyperchaos</span>
+            <span>NIST SP 800-22</span>
+          </div>
+        </article>
+
+        <div class="two-col">
+          <article class="card proj-card reveal">
+            <div>
+              <span class="badge badge-teal">Digital Design · B.Tech ECE</span>
+              <h3>DSP-Enhanced RISC-V Pipelined Processor with AES Integration</h3>
+              <p style="font-size: 14.5px; color: var(--muted);">
+                Designed a pipelined RISC-V processor extended with Digital Signal Processing (DSP) support
+                and a hardware-level AES encryption block to balance speed and hardware security.
+              </p>
+
+              <div class="pipe-panel">
+                <div style="font-size: 12px; font-weight: 600; color: var(--muted);">Click a pipeline stage:</div>
+                <div class="pipe-row">
+                  <button type="button" class="pipe-btn active" data-stage="if">1. Fetch</button>
+                  <button type="button" class="pipe-btn" data-stage="id">2. Decode</button>
+                  <button type="button" class="pipe-btn" data-stage="ex">3. Execute + DSP</button>
+                  <button type="button" class="pipe-btn" data-stage="mem">4. Memory + AES</button>
+                  <button type="button" class="pipe-btn" data-stage="wb">5. Write Back</button>
+                </div>
+                <p class="pipe-text" id="pipeDesc">
+                  Instruction Fetch reads RISC-V, DSP, and AES control instructions smoothly one cycle after another.
+                </p>
+              </div>
+            </div>
+
+            <div class="tags">
+              <span>RISC-V Architecture</span>
+              <span>DSP</span>
+              <span>Hardware AES</span>
+              <span>Digital Design</span>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div>
+              <span class="badge">Web Project · Jul - Aug 2025</span>
+              <h3>Travel-Listing Full-Stack Web App</h3>
+              <p style="font-size: 14.5px; color: var(--muted);">
+                Built during my internship at Cognifyz Technologies. Users can browse destinations and
+                add, edit, or delete travel listings across desktop and mobile devices.
+              </p>
+
+              <div class="pipe-panel" style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px;">
+                <div><strong style="color: var(--accent);">Frontend:</strong> Responsive Bootstrap layout with dynamic EJS pages</div>
+                <div><strong style="color: var(--accent);">Backend:</strong> Node.js and Express.js REST APIs for CRUD features</div>
+                <div><strong style="color: var(--accent);">Storage:</strong> MongoDB database with Git and GitHub workflow</div>
+              </div>
+            </div>
+
+            <div class="tags">
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>MongoDB</span>
+              <span>EJS</span>
+              <span>Bootstrap</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internships -->
+    <section class="section section-alt" id="internships">
+      <div class="container">
+        <div class="sec-title reveal">
+          <h2>Internships &amp; Training</h2>
+          <p>What I learned on an industrial plant floor and during my web development internship.</p>
+        </div>
+
+        <div class="exp-stack">
+          <div class="card reveal">
+            <div class="exp-top">
+              <div>
+                <h3>Aditya Birla Group - Grasim Industries Limited</h3>
+                <div class="exp-role">Vocational Trainee, Instrumentation Department · Rehla, Jharkhand</div>
+              </div>
+              <span class="date-pill">Jun 2026 - Jul 2026</span>
+            </div>
+            <ul class="exp-list">
+              <li>Completed summer industrial training with the Instrumentation Department at the Rehla chemical plant, working alongside engineers on daily field checks and troubleshooting.</li>
+              <li>Learned the working principles, calibration procedures, and routine maintenance of control valves and industrial transmitters.</li>
+              <li>Observed real-time process supervision on the Distributed Control System (DCS) to understand automation loops, plant safety, and equipment reliability.</li>
+            </ul>
+            <div class="tags">
+              <span>DCS Monitoring</span>
+              <span>Control Valves</span>
+              <span>Industrial Transmitters</span>
+              <span>Calibration &amp; Maintenance</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="exp-top">
+              <div>
+                <h3>Cognifyz Technologies</h3>
+                <div class="exp-role">Frontend Developer Intern</div>
+              </div>
+              <span class="date-pill">Jul 2025 - Aug 2025</span>
+            </div>
+            <ul class="exp-list">
+              <li>Built a full-stack travel-listing web application allowing users to browse, add, edit, and delete destinations.</li>
+              <li>Created responsive pages using Bootstrap and EJS templates and integrated REST APIs for core features.</li>
+              <li>Worked on backend CRUD routes and MongoDB storage using Node.js and Express.js with Git/GitHub.</li>
+            </ul>
+            <div class="tags">
+              <span>JavaScript</span>
+              <span>Bootstrap &amp; EJS</span>
+              <span>Node.js &amp; Express.js</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="sec-title reveal">
+          <h2>Skills</h2>
+          <p>Filter by area to see the tools and topics I have worked with.</p>
+        </div>
+
+        <div class="filter-row reveal">
+          <button type="button" class="f-btn active" data-filter="all">All Skills</button>
+          <button type="button" class="f-btn" data-filter="ece">Embedded &amp; ECE</button>
+          <button type="button" class="f-btn" data-filter="plant">Instrumentation &amp; Testing</button>
+          <button type="button" class="f-btn" data-filter="sw">Programming &amp; Web</button>
+        </div>
+
+        <div class="three-col">
+          <div class="card skill-box reveal" data-cat="ece">
+            <h3>Embedded &amp; Core ECE</h3>
+            <div class="tags">
+              <span>STM32H7 (Nucleo-144)</span>
+              <span>STM32CubeIDE / MX</span>
+              <span>UART / USART</span>
+              <span>DWT Cycle Profiling</span>
+              <span>Digital Design</span>
+              <span>RISC-V Architecture</span>
+              <span>DSP</span>
+              <span>6D Hyperchaotic PRNG</span>
+              <span>Dynamic S-Box &amp; AES</span>
+            </div>
+          </div>
+
+          <div class="card skill-box reveal" data-cat="plant">
+            <h3>Instrumentation &amp; Testing</h3>
+            <div class="tags">
+              <span>Field Calibration</span>
+              <span>Control Valves</span>
+              <span>Industrial Transmitters</span>
+              <span>DCS Monitoring</span>
+              <span>Process Control</span>
+              <span>Multimeter Power Testing</span>
+              <span>NIST SP 800-22</span>
+            </div>
+          </div>
+
+          <div class="card skill-box reveal" data-cat="sw">
+            <h3>Programming &amp; Web</h3>
+            <div class="tags">
+              <span>Embedded C</span>
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>HTML &amp; CSS</span>
+              <span>Node.js &amp; Express.js</span>
+              <span>MongoDB</span>
+              <span>EJS &amp; Bootstrap</span>
+              <span>REST APIs</span>
+              <span>Git &amp; GitHub</span>
+              <span>VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="section section-alt" id="hobbies">
+      <div class="container">
+        <div class="sec-title reveal">
+          <h2>Hobbies &amp; Campus Life</h2>
+          <p>Things I enjoy doing outside classes and project labs.</p>
+        </div>
+
+        <div class="three-col">
+          <div class="card hobby-card reveal">
+            <span class="badge">1st Place · Sports Meet</span>
+            <h3>Badminton &amp; Tug of War</h3>
+            <p>Secured 1st place in Badminton and Tug of War at BIT Patna's annual college sports meet. Playing keeps me active and refreshes my mind between exam weeks.</p>
+          </div>
+
+          <div class="card hobby-card reveal">
+            <span class="badge badge-teal">3rd Prize · 2022</span>
+            <h3>Painting &amp; Sketching</h3>
+            <p>Won 3rd prize at the Chhota Nagpur Stamp Fest (2022). Sketching is still my favorite way to unwind, and it also helps me keep my circuit diagrams neat.</p>
+          </div>
+
+          <div class="card hobby-card reveal">
+            <span class="badge">National Service Scheme</span>
+            <h3>NSS Volunteer</h3>
+            <p>Participated in community outreach and social service drives with fellow college volunteers under the National Service Scheme.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="card contact-grid reveal">
+          <div>
+            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; color: var(--heading); margin-bottom: 10px;">
+              Let's connect!
+            </h2>
+            <p style="color: var(--muted); margin-bottom: 20px; font-size: 15px;">
+              I'm currently in my 7th semester (graduating 2027) and looking for roles or internships in
+              Embedded Systems, Core ECE, Digital/VLSI Design, Instrumentation, or Software. Feel free to reach out.
+            </p>
+            <div class="cta-row">
+              <a href="mailto:snehasingh21218@gmail.com" class="btn btn-primary">Send Email</a>
+              <button type="button" class="btn btn-outline" id="copyBtn">Copy Email</button>
+              <button type="button" class="btn btn-outline" id="openOnResumeBtn">BIT Patna Resume</button>
+            </div>
+            <div class="toast-msg" id="copyToast"></div>
+          </div>
+
+          <div class="contact-info">
+            <div class="ci-row"><span>Email</span><a href="mailto:snehasingh21218@gmail.com">snehasingh21218@gmail.com</a></div>
+            <div class="ci-row"><span>Phone</span><a href="tel:+919279538098">+91 9279538098</a></div>
+            <div class="ci-row"><span>College</span><strong>BIT Mesra (Patna Campus) · Roll No. BTECH/15201/23</strong></div>
+            <div class="ci-row"><span>Location</span><strong>Patna / Hazaribagh (Open to Relocate)</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Sneha Kumari · B.Tech ECE, BIT Patna</div>
+  </footer>
+
+  <script>
+    (function () {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+
+      function setTheme(t) {
+        htmlEl.setAttribute("data-theme", t);
+        themeBtn.textContent = t === "dark" ? "Light Mode" : "Dark Mode";
+        try { localStorage.setItem("sneha_theme", t); } catch (_) {}
+      }
+      try {
+        const s = localStorage.getItem("sneha_theme");
+        if (s === "dark" || s === "light") setTheme(s);
+      } catch (_) {}
+
+      themeBtn.addEventListener("click", () => {
+        setTheme(htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+
+      // Mobile nav
+      const menuBtn = document.getElementById("menuBtn");
+      const navLinks = document.getElementById("navLinks");
+      menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+      // Progress bar + scroll reveal
+      const pBar = document.getElementById("progressBar");
+      window.addEventListener("scroll", () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max > 0) pBar.style.width = Math.min(100, (window.scrollY / max) * 100) + "%";
+      }, { passive: true });
+
+      const reveals = document.querySelectorAll(".reveal");
+      if (!reduced && "IntersectionObserver" in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach((el) => obs.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add("show"));
+      }
+
+      // Live 6D RK4 Hyperchaotic Attractor
+      const ac = document.getElementById("attractorCanvas");
+      const aw = document.getElementById("attractorWrap");
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const AW = 480, AH = 220;
+      ac.width = AW * dpr; ac.height = AH * dpr;
+      const actx = ac.getContext("2d");
+      actx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      function deriv(s) {
+        const [x, y, z, u, v, w] = s;
+        return [
+          10 * (y - x) + u + Math.sin(v),
+          28 * x - y - x * z + v + Math.cos(w),
+          -(8 / 3) * z + x * y + Math.tanh(x),
+          1.12 * u - x * z + y * z,
+          -7.3 * y + x * w + Math.sin(z),
+          -1 * w - 1 * y + Math.cos(x * y),
+        ];
+      }
+      function rk4(s, dt) {
+        const k1 = deriv(s);
+        const k2 = deriv(s.map((v, i) => v + 0.5 * dt * k1[i]));
+        const k3 = deriv(s.map((v, i) => v + 0.5 * dt * k2[i]));
+        const k4 = deriv(s.map((v, i) => v + dt * k3[i]));
+        const nx = s.map((v, i) => v + (dt / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+        return nx.every((v) => Number.isFinite(v) && Math.abs(v) < 500) ? nx : [0.11, 0.27, 0.33, 0.19, 0.23, 0.29];
+      }
+
+      let st = [0.11, 0.27, 0.33, 0.19, 0.23, 0.29];
+      for (let i = 0; i < 600; i++) st = rk4(st, 0.005);
+      const pts = [];
+      for (let i = 0; i < 1300; i++) { st = rk4(st, 0.005); pts.push(st); }
+
+      let proj = "xyz", rotY = 0.62, rotX = 0.34, drag = false, lx = 0, ly = 0;
+      const projMap = {
+        xyz: { idx: [0, 1, 2], sc: [3.6, 3.3, 3.0], off: [-1, -2, -26.5] },
+        uvw: { idx: [3, 4, 5], sc: [1.55, 1.6, 11.5], off: [1.5, 1.5, -1.65] },
+        xyu: { idx: [0, 1, 3], sc: [3.5, 3.2, 1.5], off: [-1, -2, 1.5] },
+      };
+
+      document.querySelectorAll(".proj-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          proj = btn.dataset.proj;
+          document.querySelectorAll(".proj-btn").forEach((b) => b.classList.toggle("active", b === btn));
+        });
+      });
+
+      aw.addEventListener("pointerdown", (e) => { drag = true; lx = e.clientX; ly = e.clientY; });
+      window.addEventListener("pointermove", (e) => {
+        if (!drag) return;
+        rotY += (e.clientX - lx) * 0.009;
+        rotX = Math.max(-1.1, Math.min(1.1, rotX + (e.clientY - ly) * 0.006));
+        lx = e.clientX; ly = e.clientY;
+      });
+      window.addEventListener("pointerup", () => { drag = false; });
+
+      function drawAttractor() {
+        const dark = htmlEl.getAttribute("data-theme") === "dark";
+        actx.clearRect(0, 0, AW, AH);
+        actx.strokeStyle = dark ? "rgba(223,141,162,0.1)" : "rgba(168,84,106,0.1)";
+        actx.lineWidth = 1;
+        for (let x = 40; x < AW; x += 48) { actx.beginPath(); actx.moveTo(x, 0); actx.lineTo(x, AH); actx.stroke(); }
+        for (let y = 32; y < AH; y += 38) { actx.beginPath(); actx.moveTo(0, y); actx.lineTo(AW, y); actx.stroke(); }
+
+        const c = projMap[proj];
+        const cy = Math.cos(rotY), sy = Math.sin(rotY), cx = Math.cos(rotX), sx = Math.sin(rotX);
+        actx.beginPath();
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          const px = (p[c.idx[0]] + c.off[0]) * c.sc[0];
+          const py = (p[c.idx[1]] + c.off[1]) * c.sc[1];
+          const pz = (p[c.idx[2]] + c.off[2]) * c.sc[2];
+          const x1 = px * cy - pz * sy, z1 = px * sy + pz * cy;
+          const y2 = py * cx - z1 * sx, z2 = py * sx + z1 * cx;
+          const d = 250 / (250 + z2 * 0.5);
+          const ox = AW * 0.5 + x1 * d, oy = AH * 0.52 - y2 * d;
+          if (i === 0) actx.moveTo(ox, oy); else actx.lineTo(ox, oy);
+        }
+        actx.strokeStyle = dark ? "#df8da2" : "#a8546a";
+        actx.lineWidth = 1.3;
+        actx.stroke();
+
+        if (!reduced) {
+          if (!drag) rotY += 0.004;
+          st = rk4(st, 0.005);
+          pts.shift(); pts.push(st);
+          requestAnimationFrame(drawAttractor);
+        }
+      }
+      drawAttractor();
+
+      // Speech Scope
+      const sc = document.getElementById("scopeCanvas");
+      const SW = 480, SH = 90;
+      sc.width = SW * dpr; sc.height = SH * dpr;
+      const sctx = sc.getContext("2d");
+      sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const rdSnr = document.getElementById("rdSnr");
+      const rdCorr = document.getElementById("rdCorr");
+      const rdHex = document.getElementById("rdHex");
+      const hexList = ["0xFD534BAE", "0x5020F1A4", "0x330DB181", "0xFE0D15DF", "0xD6331EFE", "0x648166DB"];
+      let mode = "original", phase = 0, tick = 0, hi = 0;
+
+      document.querySelectorAll(".scope-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          mode = btn.dataset.mode;
+          document.querySelectorAll(".scope-btn").forEach((b) => b.classList.toggle("active", b === btn));
+          if (mode === "original") { rdSnr.textContent = "Original"; rdCorr.textContent = "0.9818"; }
+          if (mode === "encrypted") { rdSnr.textContent = "-15.33 dB"; rdCorr.textContent = "-0.0050"; }
+          if (mode === "decrypted") { rdSnr.textContent = "Lossless"; rdCorr.textContent = "0.9818"; }
+          if (reduced) drawScope();
+        });
+      });
+
+      function drawScope() {
+        const dark = htmlEl.getAttribute("data-theme") === "dark";
+        sctx.clearRect(0, 0, SW, SH);
+        sctx.strokeStyle = dark ? "rgba(152,164,183,0.18)" : "rgba(96,108,124,0.15)";
+        sctx.beginPath(); sctx.moveTo(0, SH / 2); sctx.lineTo(SW, SH / 2); sctx.stroke();
+
+        sctx.strokeStyle = mode === "encrypted"
+          ? (dark ? "#e49778" : "#c97352")
+          : (dark ? "#57c7ba" : "#2b7a72");
+        sctx.lineWidth = mode === "encrypted" ? 1.1 : 1.6;
+        sctx.beginPath();
+        let seed = (0xfd534bae ^ Math.floor(phase * 91)) >>> 0;
+        for (let i = 0; i <= 220; i++) {
+          const t = i / 220, x = t * SW;
+          let a;
+          if (mode === "encrypted") {
+            seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5;
+            a = (((seed >>> 0) / 4294967295) * 2 - 1) * 0.8;
+          } else {
+            const env = Math.exp(-Math.pow((t - 0.2) * 10, 2)) * 0.9 + Math.exp(-Math.pow((t - 0.52) * 9, 2)) + Math.exp(-Math.pow((t - 0.8) * 12, 2)) * 0.7;
+            a = env * (0.6 * Math.sin(t * 200 + phase) + 0.3 * Math.sin(t * 450 - phase)) * 0.8;
+          }
+          const y = SH / 2 - a * (SH * 0.42);
+          if (i === 0) sctx.moveTo(x, y); else sctx.lineTo(x, y);
+        }
+        sctx.stroke();
+
+        if (!reduced) {
+          phase += 0.055;
+          if (++tick % 28 === 0) {
+            hi = (hi + 1) % hexList.length;
+            rdHex.textContent = mode === "original" ? "Plaintext" : hexList[hi];
+          }
+          requestAnimationFrame(drawScope);
+        }
+      }
+      drawScope();
+
+      // STM32H7 Clock Switcher
+      const freqData = {
+        "84": { sp: "0.269", spW: 41, pr: "0.558", prW: 43, pw: "42.57", pwW: 43, cur: "Steady current: 12.9 mA", note: "Low-power mode (< 0.512 Mbps)" },
+        "90": { sp: "0.289", spW: 45, pr: "0.597", prW: 46, pw: "45.21", pwW: 45, cur: "Steady current: 13.7 mA", note: "Moderate clock (< 0.512 Mbps)" },
+        "120": { sp: "0.385", spW: 59, pr: "0.797", prW: 62, pw: "56.43", pwW: 56, cur: "Steady current: 17.1 mA", note: "Near real-time speed" },
+        "180": { sp: "0.578", spW: 89, pr: "1.195", prW: 92, pw: "82.17", pwW: 82, cur: "Steady current: 24.9 mA", note: "Meets 0.512 Mbps real-time (+13%)" },
+      };
+      document.querySelectorAll(".freq-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const d = freqData[btn.dataset.freq];
+          document.querySelectorAll(".freq-btn").forEach((b) => b.classList.toggle("active", b === btn));
+          document.getElementById("mSpeed").textContent = d.sp;
+          document.getElementById("barSpeed").style.width = d.spW + "%";
+          document.getElementById("mSpeedNote").textContent = d.note;
+          document.getElementById("mPrng").textContent = d.pr;
+          document.getElementById("barPrng").style.width = d.prW + "%";
+          document.getElementById("mPower").textContent = d.pw;
+          document.getElementById("barPower").style.width = d.pwW + "%";
+          document.getElementById("mCurrent").textContent = d.cur;
+        });
+      });
+
+      // Pipeline Explorer
+      const stages = {
+        if: "Instruction Fetch reads RISC-V, DSP, and AES control instructions smoothly one cycle after another.",
+        id: "Instruction Decode reads source registers and routes operands to the ALU, DSP unit, or AES control block.",
+        ex: "Execute + DSP performs regular arithmetic plus Digital Signal Processing operations to speed up signal tasks.",
+        mem: "Memory + AES handles data memory access and hardware-level AES encryption inside the datapath.",
+        wb: "Write Back saves the final processed or encrypted output back to the register file without stalling throughput.",
+      };
+      document.querySelectorAll(".pipe-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".pipe-btn").forEach((b) => b.classList.toggle("active", b === btn));
+          document.getElementById("pipeDesc").textContent = stages[btn.dataset.stage];
+        });
+      });
+
+      // Skills Filter
+      document.querySelectorAll(".f-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const f = btn.dataset.filter;
+          document.querySelectorAll(".f-btn").forEach((b) => b.classList.toggle("active", b === btn));
+          document.querySelectorAll(".skill-box").forEach((box) => {
+            box.classList.toggle("dim", f !== "all" && box.dataset.cat !== f);
+          });
+        });
+      });
+
+      // Copy Email
+      function wireCopy(id, toastId) {
+        const b = document.getElementById(id), t = document.getElementById(toastId);
+        b.addEventListener("click", async () => {
+          const email = "snehasingh21218@gmail.com";
+          try { await navigator.clipboard.writeText(email); } catch (_) {}
+          t.textContent = "Copied snehasingh21218@gmail.com";
+          setTimeout(() => { t.textContent = ""; }, 2600);
+        });
+      }
+      wireCopy("heroCopyBtn", "heroToast");
+      wireCopy("copyBtn", "copyToast");
+      // Open embedded resume PDFs cleanly even when this HTML is saved as a single individual file
+      const resumeFiles = {
+        off: { name: "Sneha_Kumari_Resume_OffCampus.pdf", data: "JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUuMjggODQxLjg5XSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiAvRjIgNSAwIFIgL0YzIDYgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNCAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjUgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjcgMCBvYmoKPDwgL0xlbmd0aCAxMTI0NiA+PgpzdHJlYW0KMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDE2LjUwIFRmIDEgMCAwIDEgMjMzLjQ4IDgxMC44OSBUbSAoU05FSEEgS1VNQVJJKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjEgOC45MCBUZiAxIDAgMCAxIDExMC4wMSA3OTcuMzkgVG0gKEIuVGVjaCBFbGVjdHJvbmljcyAmIENvbW11bmljYXRpb24gRW5naW5lZXJpbmcgXCgyMDIzIFwyMjYgMjAyN1wpICB8ICBCSVQgTWVzcmEgXChQYXRuYSBDYW1wdXNcKSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YxIDguMTAgVGYgMSAwIDAgMSAxNDMuMTIgNzg2LjU5IFRtICgrOTEgOTI3OTUzODA5OCAgXDIyNSAgc25laGFzaW5naDIxMjE4QGdtYWlsLmNvbSAgXDIyNSAgUGF0bmEsIEJpaGFyIFwoT3BlbiB0byBSZWxvY2F0ZVwpKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjEgOC4xMCBUZiAxIDAgMCAxIDE4MS4yMCA3NzYuNTkgVG0gKExpbmtlZEluOiBbbGlua2VkaW4uY29tL2luL3lvdXItaWRdICBcMjI1ICBHaXRIdWI6IFtnaXRodWIuY29tL3lvdXItaWRdKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4xMCBUZiAxIDAgMCAxIDM2LjAwIDc1Ny4wOSBUbSAoUFJPRklMRSkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgUkcgMC45MCB3IDM2LjAwIDc1NC41OSBtIDU1OS4yOCA3NTQuNTkgbCBTCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgMzYuMDAgNzQ0Ljg5IFRtIChGaW5hbC15ZWFyIFwoN3RoIFNlbWVzdGVyXCkgQi5UZWNoIEVDRSBzdHVkZW50IGF0IEJJVCBQYXRuYSB3aXRoIGhhbmRzLW9uIGV4cGVyaWVuY2UgaW4gU1RNMzJINyBlbWJlZGRlZCBmaXJtd2FyZSwgcmVhbC10aW1lKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDczMy42OSBUbSAoc3BlZWNoIGVuY3J5cHRpb24sIFJJU0MtViBkaWdpdGFsIGRlc2lnbiwgYW5kIHBsYW50IGluc3RydW1lbnRhdGlvbiBcKEdyYXNpbSBJbmR1c3RyaWVzXCkuIFNlZWtpbmcgZW50cnktbGV2ZWwgcm9sZXMgb3IgaW50ZXJuc2hpcHMgaW4pIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgMzYuMDAgNzIyLjQ5IFRtIChFbWJlZGRlZCBTeXN0ZW1zLCBDb3JlIEVDRSwgRGlnaXRhbC9WTFNJIERlc2lnbiwgSW5zdHJ1bWVudGF0aW9uLCBvciBTb2Z0d2FyZS4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjEwIFRmIDEgMCAwIDEgMzYuMDAgNzAxLjc5IFRtIChFRFVDQVRJT04pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IFJHIDAuOTAgdyAzNi4wMCA2OTkuMjkgbSA1NTkuMjggNjk5LjI5IGwgUwowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOC45NSBUZiAxIDAgMCAxIDM2LjAwIDY4OS41OSBUbSAoQi5UZWNoLCBFbGVjdHJvbmljcyAmIENvbW11bmljYXRpb24gRW5naW5lZXJpbmcpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMSA4LjY1IFRmIDEgMCAwIDEgNDA3LjE5IDY4OS41OSBUbSAoMjAyMyBcMjI2IDIwMjcpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA4Ljc1IFRmIDEgMCAwIDEgNDc0LjY4IDY4OS41OSBUbSAoNzUlIFwoVXAgdG8gNnRoIFNlbVwpKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjMgOC41MCBUZiAxIDAgMCAxIDM2LjAwIDY3OS45OSBUbSAoQmlybGEgSW5zdGl0dXRlIG9mIFRlY2hub2xvZ3ksIE1lc3JhIFwoUGF0bmEgQ2FtcHVzXCkpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA4Ljk1IFRmIDEgMCAwIDEgMzYuMDAgNjY5LjM5IFRtIChIaWdoZXIgU2Vjb25kYXJ5IFwoQ2xhc3MgWElJXCksIENCU0UpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMSA4LjY1IFRmIDEgMCAwIDEgNDA3LjE5IDY2OS4zOSBUbSAoMjAyMCBcMjI2IDIwMjIpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA4Ljc1IFRmIDEgMCAwIDEgNTM0LjQ3IDY2OS4zOSBUbSAoODAuMCUpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4LjUwIFRmIDEgMCAwIDEgMzYuMDAgNjU5Ljc5IFRtIChEQVYgUHVibGljIFNjaG9vbCwgSGF6YXJpYmFnaCkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguOTUgVGYgMSAwIDAgMSAzNi4wMCA2NDkuMTkgVG0gKFNlY29uZGFyeSBcKENsYXNzIFhcKSwgQ0JTRSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YxIDguNjUgVGYgMSAwIDAgMSA0MDcuMTkgNjQ5LjE5IFRtICgyMDE5IFwyMjYgMjAyMCkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSA1MzQuNDcgNjQ5LjE5IFRtICg4Mi4yJSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YzIDguNTAgVGYgMSAwIDAgMSAzNi4wMCA2MzkuNTkgVG0gKEFuZ2VscyBIaWdoIFNjaG9vbCwgSGF6YXJpYmFnaCkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMTAgVGYgMSAwIDAgMSAzNi4wMCA2MjMuMzkgVG0gKFRFQ0hOSUNBTCBTS0lMTFMgJiBDT1VSU0VXT1JLKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSBSRyAwLjkwIHcgMzYuMDAgNjIwLjg5IG0gNTU5LjI4IDYyMC44OSBsIFMKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSAzNi4wMCA2MTEuMTkgVG0gKFByb2dyYW1taW5nICYgRmlybXdhcmU6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSAxNDguMzEgNjExLjE5IFRtIChFbWJlZGRlZCBDLCBQeXRob24sIEphdmFTY3JpcHQsIEhUTUwsIENTUykgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSAzNi4wMCA1OTguNzkgVG0gKEVtYmVkZGVkICYgQ29yZSBFQ0U6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSAxMzcuNjEgNTk4Ljc5IFRtIChTVE0zMkg3IFwoTnVjbGVvLTE0NFwpLCBTVE0zMkN1YmVJREUvTVgsIFVBUlQvVVNBUlQsIERXVCBQcm9maWxpbmcsIERpZ2l0YWwgRGVzaWduLCBSSVNDLVYsIERTUCwpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgMzYuMDAgNTg3LjU5IFRtIChTcGVlY2ggJiBIYXJkd2FyZSBTZWN1cml0eSBcKEh5cGVyY2hhb3RpYyBQUk5HLCBEeW5hbWljIFMtQm94LCBBRVNcKSkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSAzNi4wMCA1NzUuMTkgVG0gKEluc3RydW1lbnRhdGlvbiAmIFRlc3Rpbmc6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSAxNDkuNzYgNTc1LjE5IFRtIChGaWVsZCBJbnN0cnVtZW50IENhbGlicmF0aW9uICYgTWFpbnRlbmFuY2UsIENvbnRyb2wgVmFsdmVzLCBUcmFuc21pdHRlcnMsIERDUyBQcm9jZXNzIE1vbml0b3JpbmcsKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDU2My45OSBUbSAoTXVsdGltZXRlciBQb3dlciBUZXN0aW5nLCBOSVNUIFNQIDgwMC0yMikgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSAzNi4wMCA1NTEuNTkgVG0gKFNvZnR3YXJlICYgVG9vbHM6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSAxMTIuODIgNTUxLjU5IFRtIChOb2RlLmpzLCBFeHByZXNzLmpzLCBNb25nb0RCLCBFSlMsIEJvb3RzdHJhcCwgUkVTVCBBUElzLCBHaXQvR2l0SHViLCBWUyBDb2RlKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDUzOS4xOSBUbSAoQ29yZSBDb3Vyc2V3b3JrOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgMTE0LjI4IDUzOS4xOSBUbSAoRGlnaXRhbCBFbGVjdHJvbmljcywgU2lnbmFscyAmIFN5c3RlbXMsIE1pY3JvcHJvY2Vzc29ycyAmIE1pY3JvY29udHJvbGxlcnMsIEFuYWxvZyAmIERpZ2l0YWwgQ29tbXVuaWNhdGlvbiwpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgMzYuMDAgNTI3Ljk5IFRtIChDb21wdXRlciBBcmNoaXRlY3R1cmUsIENvbnRyb2wgU3lzdGVtcykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMTAgVGYgMSAwIDAgMSAzNi4wMCA1MDYuNTkgVG0gKElOVEVSTlNISVAgRVhQRVJJRU5DRSkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgUkcgMC45MCB3IDM2LjAwIDUwNC4wOSBtIDU1OS4yOCA1MDQuMDkgbCBTCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgNDk0LjM5IFRtIChBZGl0eWEgQmlybGEgR3JvdXAgXDIyNiBHcmFzaW0gSW5kdXN0cmllcyBMaW1pdGVkLCBSZWhsYSwgSmhhcmtoYW5kKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOC42NSBUZiAxIDAgMCAxIDQ3OC41MCA0OTQuMzkgVG0gKEp1biAyMDI2IFwyMjYgSnVsIDIwMjYpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4LjYwIFRmIDEgMCAwIDEgMzYuMDAgNDg0Ljc5IFRtIChWb2NhdGlvbmFsIFRyYWluZWUsIEluc3RydW1lbnRhdGlvbiBEZXBhcnRtZW50KSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4wNSBUZiAxIDAgMCAxIDM3LjUwIDQ3NC4xOSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSA0Ny41MCA0NzQuMTkgVG0gKENvbXBsZXRlZCBzdW1tZXIgaW5kdXN0cmlhbCB0cmFpbmluZyB3aXRoIHRoZSBJbnN0cnVtZW50YXRpb24gRGVwYXJ0bWVudCBhdCB0aGUgUmVobGEgY2hlbWljYWwgcGxhbnQsIHdvcmtpbmcgYWxvbmdzaWRlKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDQ2Mi45OSBUbSAoZW5naW5lZXJzIG9uIGRhaWx5IGZpZWxkIGNoZWNrcyBhbmQgdHJvdWJsZXNob290aW5nLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCA0NTAuMzkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgNDUwLjM5IFRtIChMZWFybmVkIHRoZSB3b3JraW5nIHByaW5jaXBsZXMsIGNhbGlicmF0aW9uIHByb2NlZHVyZXMsIGFuZCByb3V0aW5lIG1haW50ZW5hbmNlIG9mIGZpZWxkIGluc3RydW1lbnRzIGluY2x1ZGluZyBjb250cm9sIHZhbHZlcyBhbmQpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgNDM5LjE5IFRtIChpbmR1c3RyaWFsIHRyYW5zbWl0dGVycy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgNDI2LjU5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDQyNi41OSBUbSAoT2JzZXJ2ZWQgcmVhbC10aW1lIHByb2Nlc3Mgc3VwZXJ2aXNpb24gb24gdGhlIERpc3RyaWJ1dGVkIENvbnRyb2wgU3lzdGVtIFwoRENTXCkgdG8gdW5kZXJzdGFuZCBhdXRvbWF0aW9uIGxvb3BzLCBwbGFudCBzYWZldHksIGFuZCkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSA0Ny41MCA0MTUuMzkgVG0gKGVxdWlwbWVudCByZWxpYWJpbGl0eS4pIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMzk5LjE5IFRtIChDb2duaWZ5eiBUZWNobm9sb2dpZXMpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA4LjY1IFRmIDEgMCAwIDEgNDc3LjA2IDM5OS4xOSBUbSAoSnVsIDIwMjUgXDIyNiBBdWcgMjAyNSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YzIDguNjAgVGYgMSAwIDAgMSAzNi4wMCAzODkuNTkgVG0gKEZyb250ZW5kIERldmVsb3BlciBJbnRlcm4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgMzc4Ljk5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDM3OC45OSBUbSAoQnVpbHQgYSBmdWxsLXN0YWNrIHRyYXZlbC1saXN0aW5nIHdlYiBhcHBsaWNhdGlvbiBhbGxvd2luZyB1c2VycyB0byBicm93c2UsIGFkZCwgZWRpdCwgYW5kIGRlbGV0ZSB0cmF2ZWwgZGVzdGluYXRpb25zLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCAzNjYuMzkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMzY2LjM5IFRtIChDcmVhdGVkIHJlc3BvbnNpdmUgcGFnZXMgdXNpbmcgQm9vdHN0cmFwIGFuZCBFSlMgdGVtcGxhdGVzLCBpbnRlZ3JhdGluZyBSRVNUIEFQSXMgZm9yIGNvcmUgdXNlciBmZWF0dXJlcy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgMzUzLjc5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDM1My43OSBUbSAoRGV2ZWxvcGVkIGJhY2tlbmQgQ1JVRCByb3V0ZXMgYW5kIE1vbmdvREIgc3RvcmFnZSB3aXRoIE5vZGUuanMgYW5kIEV4cHJlc3MuanM7IG1hbmFnZWQgdmVyc2lvbiBjb250cm9sIHZpYSBHaXQvR2l0SHViLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMTAgVGYgMSAwIDAgMSAzNi4wMCAzMzIuMTkgVG0gKEFDQURFTUlDIFBST0pFQ1RTKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSBSRyAwLjkwIHcgMzYuMDAgMzI5LjY5IG0gNTU5LjI4IDMyOS42OSBsIFMKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDkuMDAgVGYgMSAwIDAgMSAzNi4wMCAzMTkuOTkgVG0gKFNlY3VyZSBWb2ljZSBVc2luZyA2RCBIeXBlci1DaGFvdGljIEVuY3J5cHRpb24gb24gU1RNMzJINykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDguNjUgVGYgMSAwIDAgMSA0NzguOTkgMzE5Ljk5IFRtICg3dGggU2VtIFwoMjAyNiBcMjI2IDI3XCkpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4LjUwIFRmIDEgMCAwIDEgMzYuMDAgMzEwLjM5IFRtIChCLlRlY2ggTWlub3IgUHJvamVjdCBcKFRlYW0gb2YgM1wpICB8ICBTVE0zMkg3NTVaSVEgTnVjbGVvLCBFbWJlZGRlZCBDLCBQeXRob24sIFNUTTMyQ3ViZUlERS9NWCwgVUFSVCkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCAyOTkuNzkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMjk5Ljc5IFRtIChCdWlsdCBhIHJlYWwtdGltZSBzcGVlY2ggZW5jcnlwdGlvbiBzY2hlbWUgdXNpbmcgYSA2RCBoeXBlcmNoYW90aWMgUFJORyBcKFJLNFwpIGFuZCBmcmFtZS1iYXNlZCBkeW5hbWljIFMtYm94ZXMgXChGaXNoZXItWWF0ZXMpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMjg4LjU5IFRtIChzaHVmZmxlXCkgZm9yIDE2LWJpdCwgMzIga0h6IGF1ZGlvLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCAyNzUuOTkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMjc1Ljk5IFRtIChJbXBsZW1lbnRlZCB0aGUgZmlybXdhcmUgaW4gRW1iZWRkZWQgQyBvbiBhbiBTVE0zMkg3NTVaSVEgTnVjbGVvIGJvYXJkIHZpYSBTVE0zMkN1YmVJREUvTVgsIHN0cmVhbWluZyBzcGVlY2ggZnJhbWVzKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDI2NC43OSBUbSAob3ZlciBVQVJUIFwoMjMwLjQga2Jwc1wpIHRvIFB5dGhvbiBmb3Igc2lnbmFsIGFuYWx5c2lzLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCAyNTIuMTkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMjUyLjE5IFRtIChQYXNzZWQgYWxsIE5JU1QgU1AgODAwLTIyIHJhbmRvbW5lc3MgdGVzdHMgd2l0aCBsb3NzbGVzcyByZWNvdmVyeSBcKFNOUjogLTE1LjMzIGRCLCBjb3JyZWxhdGlvbjogLTAuMDA1LCBOU0NSOiA5OS45OSVcKS4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgMjM5LjU5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDIzOS41OSBUbSAoTWVhc3VyZWQgaGFyZHdhcmUgcGVyZm9ybWFuY2UgYXQgODRcMjI2MTgwIE1IeiB2aWEgRFdUIGN5Y2xlIGNvdW50ZXIgYW5kIG11bHRpbWV0ZXIgXChJREQganVtcGVyXCksIGFjaGlldmluZyAwLjU3OCBNYnBzKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDIyOC4zOSBUbSAodGhyb3VnaHB1dCBhdCAxODAgTUh6LCA4Mi4yIG1XIHBvd2VyLCAzOS4xIEtCIEZsYXNoLCBhbmQgMjcuMyBLQiBTUkFNLikgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDkuMDAgVGYgMSAwIDAgMSAzNi4wMCAyMTIuMTkgVG0gKERTUC1FbmhhbmNlZCBSSVNDLVYgUGlwZWxpbmVkIFByb2Nlc3NvciB3aXRoIEFFUyBJbnRlZ3JhdGlvbikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDguNjUgVGYgMSAwIDAgMSA0NDkuMTcgMjEyLjE5IFRtIChbZS5nLiwgSmFuIDIwMjYgXDIyNiBNYXkgMjAyNl0pIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4LjUwIFRmIDEgMCAwIDEgMzYuMDAgMjAyLjU5IFRtIChCLlRlY2ggRUNFIFByb2plY3QgIHwgIFJJU0MtViBBcmNoaXRlY3R1cmUsIERpZ2l0YWwgRGVzaWduLCBEU1AsIEFFUyAgW1Rvb2xzOiBlLmcuLCBWZXJpbG9nLCBWaXZhZG9dKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4wNSBUZiAxIDAgMCAxIDM3LjUwIDE5MS45OSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSA0Ny41MCAxOTEuOTkgVG0gKERlc2lnbmVkIGEgcGlwZWxpbmVkIFJJU0MtViBwcm9jZXNzb3IgZXh0ZW5kZWQgd2l0aCBEaWdpdGFsIFNpZ25hbCBQcm9jZXNzaW5nIFwoRFNQXCkgc3VwcG9ydCB0byBzcGVlZCB1cCBzaWduYWwtcHJvY2Vzc2luZykgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSA0Ny41MCAxODAuNzkgVG0gKHRhc2tzLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMDUgVGYgMSAwIDAgMSAzNy41MCAxNjguMTkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgMTY4LjE5IFRtIChJbnRlZ3JhdGVkIGEgaGFyZHdhcmUtbGV2ZWwgQUVTIGVuY3J5cHRpb24gbW9kdWxlIGludG8gdGhlIHByb2Nlc3NvciBkYXRhcGF0aCBmb3Igc2VjdXJlIGRhdGEgcHJvY2Vzc2luZy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgMTU1LjU5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDQ3LjUwIDE1NS41OSBUbSAoQ29vcmRpbmF0ZWQgcGlwZWxpbmUgc3RhZ2VzLCBEU1AgZXhlY3V0aW9uLCBhbmQgQUVTIGxvZ2ljIHVzaW5nIGNvbXB1dGVyIGFyY2hpdGVjdHVyZSBhbmQgZGlnaXRhbCBkZXNpZ24gY29uY2VwdHMgdG8gYmFsYW5jZSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSA0Ny41MCAxNDQuMzkgVG0gKHRocm91Z2hwdXQgYW5kIGhhcmR3YXJlIHNlY3VyaXR5LikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMTAgVGYgMSAwIDAgMSAzNi4wMCAxMjIuNzkgVG0gKEFDSElFVkVNRU5UUyAmIEFDVElWSVRJRVMpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IFJHIDAuOTAgdyAzNi4wMCAxMjAuMjkgbSA1NTkuMjggMTIwLjI5IGwgUwowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4wNSBUZiAxIDAgMCAxIDM3LjUwIDExMC41OSBUbSAoXDIyNSkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDguNzUgVGYgMSAwIDAgMSA0Ny41MCAxMTAuNTkgVG0gKFNwb3J0czogKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDgwLjU2IDExMC41OSBUbSAoU2VjdXJlZCAxc3QgcGxhY2UgaW4gQmFkbWludG9uIGFuZCBUdWcgb2YgV2FyIGF0IHRoZSBhbm51YWwgY29sbGVnZSBzcG9ydHMgbWVldC4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgOTcuOTkgVG0gKFwyMjUpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgOTcuOTkgVG0gKEFydDogKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOC43NSBUZiAxIDAgMCAxIDY1LjQ4IDk3Ljk5IFRtIChXb24gM3JkIHByaXplIGluIFBhaW50aW5nIGFuZCBTa2V0Y2hpbmcgYXQgdGhlIENoaG90YSBOYWdwdXIgU3RhbXAgRmVzdCBcKDIwMjJcKS4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjA1IFRmIDEgMCAwIDEgMzcuNTAgODUuMzkgVG0gKFwyMjUpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA4Ljc1IFRmIDEgMCAwIDEgNDcuNTAgODUuMzkgVG0gKE5TUyBWb2x1bnRlZXI6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDguNzUgVGYgMSAwIDAgMSAxMTMuNjIgODUuMzkgVG0gKFBhcnRpY2lwYXRlZCBpbiBjb21tdW5pdHkgb3V0cmVhY2ggYW5kIHNvY2lhbCBzZXJ2aWNlIGRyaXZlcyB1bmRlciB0aGUgTmF0aW9uYWwgU2VydmljZSBTY2hlbWUuKSBUaiBFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA4CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDAwMDY0IDAwMDAwIG4gCjAwMDAwMDAxMjEgMDAwMDAgbiAKMDAwMDAwMDI3MyAwMDAwMCBuIAowMDAwMDAwMzcwIDAwMDAwIG4gCjAwMDAwMDA0NzIgMDAwMDAgbiAKMDAwMDAwMDU3NyAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDggL1Jvb3QgMSAwIFIgPj4Kc3RhcnR4cmVmCjExODc1CiUlRU9GCg==" },
+        on: { name: "Sneha_Kumari_Resume_OnCampus.pdf", data: "JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUuMjggODQxLjg5XSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiAvRjIgNSAwIFIgL0YzIDYgMCBSID4+ID4+IC9Db250ZW50cyA3IDAgUiA+PgplbmRvYmoKNCAwIG9iago8PCAvVHlwZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjUgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjYgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgPj4KZW5kb2JqCjcgMCBvYmoKPDwgL0xlbmd0aCAxMDU2MSA+PgpzdHJlYW0KMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDE3LjUwIFRmIDEgMCAwIDEgMjI5LjU5IDgwNy44OSBUbSAoU05FSEEgS1VNQVJJKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjEgOS4yMCBUZiAxIDAgMCAxIDEzNi4xNSA3OTMuMDkgVG0gKEIuVGVjaCwgRWxlY3Ryb25pY3MgJiBDb21tdW5pY2F0aW9uIEVuZ2luZWVyaW5nIFwoN3RoIFNlbWVzdGVyXCkgIHwgIEJJVCBQYXRuYSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YxIDguMzAgVGYgMSAwIDAgMSAxNDguNzcgNzgxLjQ5IFRtICgrOTEgOTI3OTUzODA5OCAgXDIyNSAgc25laGFzaW5naDIxMjE4QGdtYWlsLmNvbSAgXDIyNSAgUm9sbCBOby46IEJURUNILzE1MjAxLzIzKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjEgOC4zMCBUZiAxIDAgMCAxIDE3OC4zMyA3NzAuODkgVG0gKExpbmtlZEluOiBbbGlua2VkaW4uY29tL2luL3lvdXItaWRdICBcMjI1ICBHaXRIdWI6IFtnaXRodWIuY29tL3lvdXItaWRdKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS41MCBUZiAxIDAgMCAxIDM2LjAwIDc0OC41OSBUbSAoRURVQ0FUSU9OKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSBSRyAwLjkwIHcgMzYuMDAgNzQ2LjA5IG0gNTU5LjI4IDc0Ni4wOSBsIFMKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDkuMjAgVGYgMSAwIDAgMSAzNi4wMCA3MzUuMzkgVG0gKEIuVGVjaCwgRWxlY3Ryb25pY3MgJiBDb21tdW5pY2F0aW9uIEVuZ2luZWVyaW5nKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjEgOC45MCBUZiAxIDAgMCAxIDQwNS44MCA3MzUuMzkgVG0gKDIwMjMgXDIyNiAyMDI3KSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4wMCBUZiAxIDAgMCAxIDQ3Mi4yNyA3MzUuMzkgVG0gKDc1JSBcKFVwIHRvIDZ0aCBTZW1cKSkgVGogRVQKMC4yOTQgMC4zMzMgMC4zODggcmcKQlQgL0YzIDguNzUgVGYgMSAwIDAgMSAzNi4wMCA3MjQuOTkgVG0gKEJpcmxhIEluc3RpdHV0ZSBvZiBUZWNobm9sb2d5LCBNZXNyYSBcKFBhdG5hIENhbXB1c1wpKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4yMCBUZiAxIDAgMCAxIDM2LjAwIDcxMy4xOSBUbSAoSGlnaGVyIFNlY29uZGFyeSBcKENsYXNzIFhJSVwpLCBDQlNFKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjEgOC45MCBUZiAxIDAgMCAxIDQwNS44MCA3MTMuMTkgVG0gKDIwMjAgXDIyNiAyMDIyKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4wMCBUZiAxIDAgMCAxIDUzMy43NiA3MTMuMTkgVG0gKDgwLjAlKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjMgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDcwMi43OSBUbSAoREFWIFB1YmxpYyBTY2hvb2wsIEhhemFyaWJhZ2gpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjIwIFRmIDEgMCAwIDEgMzYuMDAgNjkwLjk5IFRtIChTZWNvbmRhcnkgXChDbGFzcyBYXCksIENCU0UpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMSA4LjkwIFRmIDEgMCAwIDEgNDA1LjgwIDY5MC45OSBUbSAoMjAxOSBcMjI2IDIwMjApIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgNTMzLjc2IDY5MC45OSBUbSAoODIuMiUpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4Ljc1IFRmIDEgMCAwIDEgMzYuMDAgNjgwLjU5IFRtIChBbmdlbHMgSGlnaCBTY2hvb2wsIEhhemFyaWJhZ2gpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjUwIFRmIDEgMCAwIDEgMzYuMDAgNjYwLjk5IFRtIChJTlRFUk5TSElQIEVYUEVSSUVOQ0UpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IFJHIDAuOTAgdyAzNi4wMCA2NTguNDkgbSA1NTkuMjggNjU4LjQ5IGwgUwowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4yNSBUZiAxIDAgMCAxIDM2LjAwIDY0Ny43OSBUbSAoQWRpdHlhIEJpcmxhIEdyb3VwIFwyMjYgR3Jhc2ltIEluZHVzdHJpZXMgTGltaXRlZCwgUmVobGEsIEpoYXJraGFuZCkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDguOTAgVGYgMSAwIDAgMSA0NzYuMTYgNjQ3Ljc5IFRtIChKdW4gMjAyNiBcMjI2IEp1bCAyMDI2KSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjMgOC44NSBUZiAxIDAgMCAxIDM2LjAwIDYzNy4zOSBUbSAoVm9jYXRpb25hbCBUcmFpbmVlLCBJbnN0cnVtZW50YXRpb24gRGVwYXJ0bWVudCkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMzAgVGYgMSAwIDAgMSAzNy41MCA2MjUuOTkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgNDcuNTAgNjI1Ljk5IFRtIChDb21wbGV0ZWQgc3VtbWVyIGluZHVzdHJpYWwgdHJhaW5pbmcgd2l0aCB0aGUgSW5zdHJ1bWVudGF0aW9uIERlcGFydG1lbnQgYXQgdGhlIFJlaGxhIGNoZW1pY2FsIHBsYW50LCB3b3JraW5nIGFsb25nc2lkZSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA2MTQuMTQgVG0gKGVuZ2luZWVycyBvbiBkYWlseSBmaWVsZCBjaGVja3MgYW5kIHRyb3VibGVzaG9vdGluZy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgNjAwLjQ5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDYwMC40OSBUbSAoTGVhcm5lZCB0aGUgd29ya2luZyBwcmluY2lwbGVzLCBjYWxpYnJhdGlvbiBwcm9jZWR1cmVzLCBhbmQgcm91dGluZSBtYWludGVuYW5jZSBvZiBmaWVsZCBpbnN0cnVtZW50cyBpbmNsdWRpbmcgY29udHJvbCB2YWx2ZXMgYW5kKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDU4OC42NCBUbSAoaW5kdXN0cmlhbCB0cmFuc21pdHRlcnMuKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4zMCBUZiAxIDAgMCAxIDM3LjUwIDU3NC45OSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA1NzQuOTkgVG0gKE9ic2VydmVkIHJlYWwtdGltZSBwcm9jZXNzIHN1cGVydmlzaW9uIG9uIHRoZSBEaXN0cmlidXRlZCBDb250cm9sIFN5c3RlbSBcKERDU1wpIHRvIHVuZGVyc3RhbmQgYXV0b21hdGlvbiBsb29wcywgcGxhbnQgc2FmZXR5LCkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA1NjMuMTQgVG0gKGFuZCBlcXVpcG1lbnQgcmVsaWFiaWxpdHkuKSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4yNSBUZiAxIDAgMCAxIDM2LjAwIDU0NC42OSBUbSAoQ29nbmlmeXogVGVjaG5vbG9naWVzKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOC45MCBUZiAxIDAgMCAxIDQ3NC42OSA1NDQuNjkgVG0gKEp1bCAyMDI1IFwyMjYgQXVnIDIwMjUpIFRqIEVUCjAuMjk0IDAuMzMzIDAuMzg4IHJnCkJUIC9GMyA4Ljg1IFRmIDEgMCAwIDEgMzYuMDAgNTM0LjI5IFRtIChGcm9udGVuZCBEZXZlbG9wZXIgSW50ZXJuKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4zMCBUZiAxIDAgMCAxIDM3LjUwIDUyMi44OSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA1MjIuODkgVG0gKEJ1aWx0IGEgZnVsbC1zdGFjayB0cmF2ZWwtbGlzdGluZyB3ZWIgYXBwbGljYXRpb24gYWxsb3dpbmcgdXNlcnMgdG8gYnJvd3NlLCBhZGQsIGVkaXQsIGFuZCBkZWxldGUgdHJhdmVsIGRlc3RpbmF0aW9ucy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgNTA5LjI0IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDUwOS4yNCBUbSAoQ3JlYXRlZCByZXNwb25zaXZlIHBhZ2VzIHVzaW5nIEJvb3RzdHJhcCBhbmQgRUpTIHRlbXBsYXRlcywgaW50ZWdyYXRpbmcgUkVTVCBBUElzIGZvciBjb3JlIHVzZXIgZmVhdHVyZXMuKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4zMCBUZiAxIDAgMCAxIDM3LjUwIDQ5NS41OSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA0OTUuNTkgVG0gKERldmVsb3BlZCBiYWNrZW5kIENSVUQgcm91dGVzIGFuZCBNb25nb0RCIHN0b3JhZ2Ugd2l0aCBOb2RlLmpzIGFuZCBFeHByZXNzLmpzOyBtYW5hZ2VkIHZlcnNpb24gY29udHJvbCB2aWEgR2l0L0dpdEh1Yi4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjUwIFRmIDEgMCAwIDEgMzYuMDAgNDcwLjc0IFRtIChBQ0FERU1JQyBQUk9KRUNUUykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgUkcgMC45MCB3IDM2LjAwIDQ2OC4yNCBtIDU1OS4yOCA0NjguMjQgbCBTCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjI1IFRmIDEgMCAwIDEgMzYuMDAgNDU3LjU0IFRtIChTZWN1cmUgVm9pY2UgVXNpbmcgNkQgSHlwZXItQ2hhb3RpYyBFbmNyeXB0aW9uIG9uIFNUTTMySDcpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA4LjkwIFRmIDEgMCAwIDEgNDc2LjY3IDQ1Ny41NCBUbSAoN3RoIFNlbSBcKDIwMjYgXDIyNiAyN1wpKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjMgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDQ0Ny4xNCBUbSAoQi5UZWNoIE1pbm9yIFByb2plY3QgXChUZWFtIG9mIDNcKSAgfCAgU1RNMzJINzU1WklRIE51Y2xlbywgRW1iZWRkZWQgQywgUHl0aG9uLCBTVE0zMkN1YmVJREUvTVgsIFVBUlQpIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgNDM1Ljc0IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDQzNS43NCBUbSAoQnVpbHQgYSByZWFsLXRpbWUgc3BlZWNoIGVuY3J5cHRpb24gc2NoZW1lIHVzaW5nIGEgNkQgaHlwZXJjaGFvdGljIFBSTkcgXChSSzRcKSBhbmQgZnJhbWUtYmFzZWQgZHluYW1pYyBTLWJveGVzKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDQyMy44OSBUbSAoXChGaXNoZXItWWF0ZXMgc2h1ZmZsZVwpIGZvciAxNi1iaXQsIDMyIGtIeiBhdWRpby4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgNDEwLjI0IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDQxMC4yNCBUbSAoSW1wbGVtZW50ZWQgdGhlIGZpcm13YXJlIGluIEVtYmVkZGVkIEMgb24gYW4gU1RNMzJINzU1WklRIE51Y2xlbyBib2FyZCB2aWEgU1RNMzJDdWJlSURFL01YLCBzdHJlYW1pbmcgc3BlZWNoKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDM5OC4zOSBUbSAoZnJhbWVzIG92ZXIgVUFSVCBcKDIzMC40IGticHNcKSB0byBQeXRob24gZm9yIHNpZ25hbCBhbmFseXNpcy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgMzg0Ljc0IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDM4NC43NCBUbSAoUGFzc2VkIGFsbCBOSVNUIFNQIDgwMC0yMiByYW5kb21uZXNzIHRlc3RzIHdpdGggbG9zc2xlc3MgcmVjb3ZlcnkgXChTTlI6IC0xNS4zMyBkQiwgY29ycmVsYXRpb246IC0wLjAwNSwgTlNDUjogOTkuOTklXCkuKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4zMCBUZiAxIDAgMCAxIDM3LjUwIDM3MS4wOSBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCAzNzEuMDkgVG0gKE1lYXN1cmVkIGhhcmR3YXJlIHBlcmZvcm1hbmNlIGF0IDg0XDIyNjE4MCBNSHogdmlhIERXVCBjeWNsZSBjb3VudGVyIGFuZCBtdWx0aW1ldGVyIFwoSUREIGp1bXBlclwpLCBhY2hpZXZpbmcgMC41NzggTWJwcykgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCAzNTkuMjQgVG0gKHRocm91Z2hwdXQgYXQgMTgwIE1IeiwgODIuMiBtVyBwb3dlciwgMzkuMSBLQiBGbGFzaCwgYW5kIDI3LjMgS0IgU1JBTS4pIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjI1IFRmIDEgMCAwIDEgMzYuMDAgMzQwLjc5IFRtIChEU1AtRW5oYW5jZWQgUklTQy1WIFBpcGVsaW5lZCBQcm9jZXNzb3Igd2l0aCBBRVMgSW50ZWdyYXRpb24pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA4LjkwIFRmIDEgMCAwIDEgNDQ1Ljk5IDM0MC43OSBUbSAoW2UuZy4sIEphbiAyMDI2IFwyMjYgTWF5IDIwMjZdKSBUaiBFVAowLjI5NCAwLjMzMyAwLjM4OCByZwpCVCAvRjMgOC43NSBUZiAxIDAgMCAxIDM2LjAwIDMzMC4zOSBUbSAoQi5UZWNoIEVDRSBQcm9qZWN0ICB8ICBSSVNDLVYgQXJjaGl0ZWN0dXJlLCBEaWdpdGFsIERlc2lnbiwgRFNQLCBBRVMgIFtUb29sczogZS5nLiwgVmVyaWxvZywgVml2YWRvXSkgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMzAgVGYgMSAwIDAgMSAzNy41MCAzMTguOTkgVG0gKFwyMjUpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgNDcuNTAgMzE4Ljk5IFRtIChEZXNpZ25lZCBhIHBpcGVsaW5lZCBSSVNDLVYgcHJvY2Vzc29yIGV4dGVuZGVkIHdpdGggRGlnaXRhbCBTaWduYWwgUHJvY2Vzc2luZyBcKERTUFwpIHN1cHBvcnQgdG8gc3BlZWQgdXAgc2lnbmFsLXByb2Nlc3NpbmcpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgNDcuNTAgMzA3LjE0IFRtICh0YXNrcy4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgMjkzLjQ5IFRtIChcMjI1KSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDI5My40OSBUbSAoSW50ZWdyYXRlZCBhIGhhcmR3YXJlLWxldmVsIEFFUyBlbmNyeXB0aW9uIG1vZHVsZSBpbnRvIHRoZSBwcm9jZXNzb3IgZGF0YXBhdGggZm9yIHNlY3VyZSBkYXRhIHByb2Nlc3NpbmcuKSBUaiBFVAowLjEwNiAwLjIxMiAwLjM2NSByZwpCVCAvRjIgOS4zMCBUZiAxIDAgMCAxIDM3LjUwIDI3OS44NCBUbSAoXDIyNSkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCAyNzkuODQgVG0gKENvb3JkaW5hdGVkIHBpcGVsaW5lIHN0YWdlcywgRFNQIGV4ZWN1dGlvbiwgYW5kIEFFUyBsb2dpYyB1c2luZyBjb21wdXRlciBhcmNoaXRlY3R1cmUgYW5kIGRpZ2l0YWwgZGVzaWduIGNvbmNlcHRzIHRvIGJhbGFuY2UpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgNDcuNTAgMjY3Ljk5IFRtICh0aHJvdWdocHV0IGFuZCBoYXJkd2FyZSBzZWN1cml0eS4pIFRqIEVUCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjUwIFRmIDEgMCAwIDEgMzYuMDAgMjQzLjE0IFRtIChURUNITklDQUwgU0tJTExTICYgQ09VUlNFV09SSykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgUkcgMC45MCB3IDM2LjAwIDI0MC42NCBtIDU1OS4yOCAyNDAuNjQgbCBTCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMjI5Ljk0IFRtIChQcm9ncmFtbWluZyAmIEZpcm13YXJlOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgMTUxLjUyIDIyOS45NCBUbSAoRW1iZWRkZWQgQywgUHl0aG9uLCBKYXZhU2NyaXB0LCBIVE1MLCBDU1MpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMjE2LjQ5IFRtIChFbWJlZGRlZCAmIENvcmUgRUNFOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgMTQwLjUyIDIxNi40OSBUbSAoU1RNMzJINyBcKE51Y2xlby0xNDRcKSwgU1RNMzJDdWJlSURFL01YLCBVQVJUL1VTQVJULCBEV1QgUHJvZmlsaW5nLCBEaWdpdGFsIERlc2lnbiwgUklTQy1WLCkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSAzNi4wMCAyMDQuNjQgVG0gKERTUCwgU3BlZWNoICYgSGFyZHdhcmUgU2VjdXJpdHkgXChIeXBlcmNoYW90aWMgUFJORywgRHluYW1pYyBTLUJveCwgQUVTXCkpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMTkxLjE5IFRtIChJbnN0cnVtZW50YXRpb24gJiBUZXN0aW5nOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgMTUzLjAxIDE5MS4xOSBUbSAoRmllbGQgSW5zdHJ1bWVudCBDYWxpYnJhdGlvbiAmIE1haW50ZW5hbmNlLCBDb250cm9sIFZhbHZlcywgVHJhbnNtaXR0ZXJzLCBEQ1MgUHJvY2VzcyBNb25pdG9yaW5nLCkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSAzNi4wMCAxNzkuMzQgVG0gKE11bHRpbWV0ZXIgUG93ZXIgVGVzdGluZywgTklTVCBTUCA4MDAtMjIpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMTY1Ljg5IFRtIChXZWIgJiBEZXZlbG9wZXIgVG9vbHM6ICkgVGogRVQKMC4xMjIgMC4xNjEgMC4yMTYgcmcKQlQgL0YxIDkuMDAgVGYgMSAwIDAgMSAxNDIuMDIgMTY1Ljg5IFRtIChOb2RlLmpzLCBFeHByZXNzLmpzLCBNb25nb0RCLCBFSlMsIEJvb3RzdHJhcCwgUkVTVCBBUElzLCBHaXQvR2l0SHViLCBWUyBDb2RlLCBNUyBPZmZpY2UpIFRqIEVUCjAuMDY3IDAuMDk0IDAuMTUzIHJnCkJUIC9GMiA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMTUyLjQ0IFRtIChSZWxldmFudCBDb3Vyc2V3b3JrOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgMTMzLjUyIDE1Mi40NCBUbSAoRGlnaXRhbCBFbGVjdHJvbmljcywgU2lnbmFscyAmIFN5c3RlbXMsIE1pY3JvcHJvY2Vzc29ycyAmIE1pY3JvY29udHJvbGxlcnMsIEFuYWxvZyAmIERpZ2l0YWwpIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgMzYuMDAgMTQwLjU5IFRtIChDb21tdW5pY2F0aW9uLCBDb21wdXRlciBBcmNoaXRlY3R1cmUsIENvbnRyb2wgU3lzdGVtcykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuNTAgVGYgMSAwIDAgMSAzNi4wMCAxMTUuOTQgVG0gKEVYVFJBLUNVUlJJQ1VMQVIgQUNUSVZJVElFUykgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgUkcgMC45MCB3IDM2LjAwIDExMy40NCBtIDU1OS4yOCAxMTMuNDQgbCBTCjAuMTA2IDAuMjEyIDAuMzY1IHJnCkJUIC9GMiA5LjMwIFRmIDEgMCAwIDEgMzcuNTAgMTAyLjc0IFRtIChcMjI1KSBUaiBFVAowLjA2NyAwLjA5NCAwLjE1MyByZwpCVCAvRjIgOS4wMCBUZiAxIDAgMCAxIDQ3LjUwIDEwMi43NCBUbSAoU3BvcnRzOiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgODEuNTAgMTAyLjc0IFRtIChTZWN1cmVkIDFzdCBwbGFjZSBpbiBCYWRtaW50b24gYW5kIFR1ZyBvZiBXYXIgYXQgdGhlIGFubnVhbCBjb2xsZWdlIHNwb3J0cyBtZWV0LikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMzAgVGYgMSAwIDAgMSAzNy41MCA4OS4wOSBUbSAoXDIyNSkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA4OS4wOSBUbSAoQXJ0OiApIFRqIEVUCjAuMTIyIDAuMTYxIDAuMjE2IHJnCkJUIC9GMSA5LjAwIFRmIDEgMCAwIDEgNjYuMDAgODkuMDkgVG0gKFdvbiAzcmQgcHJpemUgaW4gUGFpbnRpbmcgYW5kIFNrZXRjaGluZyBhdCB0aGUgQ2hob3RhIE5hZ3B1ciBTdGFtcCBGZXN0IFwoMjAyMlwpLikgVGogRVQKMC4xMDYgMC4yMTIgMC4zNjUgcmcKQlQgL0YyIDkuMzAgVGYgMSAwIDAgMSAzNy41MCA3NS40NCBUbSAoXDIyNSkgVGogRVQKMC4wNjcgMC4wOTQgMC4xNTMgcmcKQlQgL0YyIDkuMDAgVGYgMSAwIDAgMSA0Ny41MCA3NS40NCBUbSAoTlNTIFZvbHVudGVlcjogKSBUaiBFVAowLjEyMiAwLjE2MSAwLjIxNiByZwpCVCAvRjEgOS4wMCBUZiAxIDAgMCAxIDExNS41MSA3NS40NCBUbSAoUGFydGljaXBhdGVkIGluIGNvbW11bml0eSBvdXRyZWFjaCBhbmQgc29jaWFsIHNlcnZpY2UgZHJpdmVzIHVuZGVyIHRoZSBOYXRpb25hbCBTZXJ2aWNlIFNjaGVtZS4pIFRqIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAwNjQgMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjczIDAwMDAwIG4gCjAwMDAwMDAzNzAgMDAwMDAgbiAKMDAwMDAwMDQ3MiAwMDAwMCBuIAowMDAwMDAwNTc3IDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMTExOTAKJSVFT0YK" },
+      };
+      function openPdf(kind) {
+        const item = resumeFiles[kind];
+        const bin = atob(item.data);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        const blob = new Blob([bytes], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
+        const win = window.open(url, "_blank");
+        if (!win) {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = item.name;
+          a.click();
+        }
+      }
+      const offBtn = document.getElementById("openOffResumeBtn");
+      const onBtn = document.getElementById("openOnResumeBtn");
+      if (offBtn) offBtn.addEventListener("click", () => openPdf("off"));
+      if (onBtn) onBtn.addEventListener("click", () => openPdf("on"));
+
+    })();
+  </script>
+</body>
+</html>
